@@ -1,0 +1,442 @@
+* {
+  font-family: "Ubuntu Light", tahoma, arial, helvetica, sans-serif;
+  font-weight: lighter;
+}
+
+/***** TAB BAR *****/
+
+/* Shrink tab bar */
+#tabbrowser-tabs,
+#tabbrowser-arrowscrollbox,
+#tabbrowser-tab,
+.tabbrowser-tab,
+.tab-stack,
+.tab-content {
+  height: 40px !important;
+  min-height: 40px !important;
+  margin: 0 !important;
+}
+.tab-background {
+  height: 30px !important;
+  min-height: 30px !important;
+  margin-top: 5px !important;
+  margin-left: 2px !important;
+  margin-right: 2px !important;
+}
+
+:root {
+  --tab-min-height: 0 !important;
+  --tab-block-margin: 0 !important;
+  --tab-border-radius: 20px !important; /* makes tabs rounded */
+  --toolbarbutton-border-radius: 20px !important; /*makes floorp icon in toolbar rounded */
+}
+
+#tabs-newtab-button .toolbarbutton-icon,
+#alltabs-button .toolbarbutton-icon {
+  width: 32px !important;
+  padding: 8px !important;
+}
+
+#navigator-toolbox {
+  /* Remove black border */
+  margin-bottom: -1px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23) !important;
+  z-index: 1000 !important;
+}
+
+/* Move close button to the left on hover */
+.tab-label-container {
+  order: 1;
+  font-size: 13px;
+}
+
+.tabbrowser-tab .tab-close-button {
+  display: none !important;
+  border-radius: 8px !important;
+  margin-left: -4.5px !important;
+  margin-right: 2px !important;
+}
+
+.tabbrowser-tab[selected="true"]:not([pinned]):hover .tab-icon-stack {
+  display: block !important;
+  position: relative;
+  order: 0;
+  margin-top: 1px;
+}
+
+.tabbrowser-tab[selected="true"]:not([pinned]):hover .tab-close-button {
+  display: block !important;
+  position: relative;
+  order: 1;
+}
+
+.tabbrowser-tab:hover .tab-icon-stack {
+  display: block !important;
+  order: 0;
+  margin-top: 1px;
+}
+
+.tabbrowser-tab:hover .tab-close-button {
+  display: block !important;
+  position: relative;
+  order: 2;
+}
+
+/* Remove silly space */
+.titlebar-spacer {
+  width: 8px !important;
+}
+
+/***** NAV BAR *****/
+.urlbar-input-box {
+  font-size: 13px !important;
+  font-weight: light !important;
+}
+
+#nav-bar {
+  position: absolute !important;
+  top: 48px !important;
+  left: 8px !important;
+  right: 8px !important;
+  height: 0px !important;
+  border-radius: 25px !important;
+
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23) !important;
+
+  z-index: 1002 !important;
+  min-height: 0px !important;
+  transition: height var(--animation-easing-function) 500ms 500ms,
+    opacity var(--animation-easing-function) 500ms 500ms !important;
+  opacity: 0 !important;
+}
+
+:root[customizing] #nav-bar,
+#navigator-toolbox:hover #nav-bar,
+#nav-bar:focus-within {
+  height: 40px !important;
+  opacity: 100 !important;
+  transition: height var(--animation-easing-function) 500ms 200ms,
+    opacity var(--animation-easing-function) 500ms 200ms !important;
+}
+
+#nav-bar:focus-within {
+  opacity: 0 !important;
+}
+
+#urlbar[breakout] {
+  top: unset !important;
+  opacity: 30 !important;
+}
+
+#nav-bar:focus-within #urlbar-input {
+  height: 28px !important;
+  opacity: 30 !important;
+}
+
+#urlbar-input {
+  background-image: var(--lwt-additional-images);
+  background-repeat: var(--lwt-background-tiling) !important;
+  background-position: right top, var(--lwt-background-alignment) !important;
+  background-color: var(--lwt-accent-color) !important;
+}
+
+#urlbar-input-container {
+  width: 100% !important;
+  height: 100% !important;
+  opacity: 30 !important;
+}
+#urlbar-background {
+  background-image: var(--lwt-additional-images);
+  background-repeat: var(--lwt-background-tiling) !important;
+  background-position: right top, var(--lwt-background-alignment) !important;
+  background-color: var(--lwt-accent-color) !important;
+  border-radius: 20px;
+}
+#urlbar[focused="true"]:not([suppress-focus-border]) > #urlbar-background,
+#searchbar:focus-within {
+  outline: none;
+}
+
+.urlbarView {
+  position: absolute !important;
+  background-color: light-dark(#f8f8f8, #1c1d2b8f) !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23) !important;
+  margin-top: 12px !important;
+  border-radius: 20px;
+  background-image: var(--lwt-additional-images);
+  background-repeat: var(--lwt-background-tiling) !important;
+  background-position: right top, var(--lwt-background-alignment) !important;
+  background-color: var(--lwt-accent-color) !important;
+}
+
+/***** NAV BUTTONS *****/
+toolbarbutton#back-button,
+toolbarbutton#forward-button {
+  width: 42px !important;
+  transition: width var(--animation-easing-function) 500ms,
+    opacity var(--animation-easing-function) 500ms !important;
+  background-image: var(--lwt-additional-images);
+}
+
+toolbarbutton#back-button {
+  background-color: light-dark(
+    color-mix(in srgb, var(--toolbar-bgcolor), rgba(0, 0, 0, 0) 3%),
+    color-mix(in srgb, var(--toolbar-bgcolor), rgba(0, 0, 0, 0) 20%)
+  ) !important;
+  border-radius: 4px 0px 0px 4px;
+  margin: 4px 0px 4px 20px !important;
+  background-image: var(--lwt-additional-images);
+}
+
+toolbarbutton#forward-button {
+  background-color: light-dark(
+    color-mix(in srgb, var(--toolbar-bgcolor), rgba(0, 0, 0, 0) 3%),
+    color-mix(in srgb, var(--toolbar-bgcolor), rgba(0, 0, 0, 0) 20%)
+  ) !important;
+  border-radius: 0px;
+  margin: 4px -1px 4px 0px !important;
+  background-image: var(--lwt-additional-images);
+}
+
+:root:not([customizing]) #nav-bar toolbarbutton#back-button[disabled="true"] {
+  width: 4px !important;
+  opacity: 1 !important;
+  background-image: var(--lwt-additional-images);
+}
+
+:root:not([customizing])
+  #nav-bar
+  toolbarbutton#back-button[disabled="true"]
+  .toolbarbutton-icon {
+  opacity: 0;
+}
+
+:root:not([customizing])
+  #nav-bar
+  toolbarbutton#forward-button[disabled="true"] {
+  width: 4px !important;
+  opacity: 1 !important;
+}
+
+:root:not([customizing])
+  #nav-bar
+  toolbarbutton#forward-button[disabled="true"]
+  .toolbarbutton-icon {
+  opacity: 0;
+}
+
+#stop-reload-button {
+  background-color: light-dark(
+    color-mix(in srgb, var(--toolbar-bgcolor), rgba(0, 0, 0, 0) 3%),
+    color-mix(in srgb, var(--toolbar-bgcolor), rgba(0, 0, 0, 0) 20%)
+  ) !important;
+  padding: 4px !important;
+  border-radius: 0px;
+  margin: 4px 0px 4px 0px !important;
+  z-index: 5;
+  background-image: var(--lwt-additional-images);
+}
+
+toolbarbutton#back-button:hover,
+toolbarbutton#forward-button:hover,
+#stop-reload-button:hover {
+  z-index: 10;
+}
+
+toolbarbutton#back-button .toolbarbutton-icon,
+toolbarbutton#forward-button .toolbarbutton-icon,
+#stop-reload-button .toolbarbutton-icon {
+  height: 30px !important;
+}
+
+#urlbar-background {
+  border-radius: 0 4px 4px 0 !important;
+  margin-left: -4px;
+  z-index: -1;
+}
+
+#urlbar {
+  padding-left: 8px !important;
+}
+
+#bookmarks-menu-button {
+  margin-right: 16px !important;
+}
+
+/***** BOOKMARKS BAR *****/
+
+#PersonalToolbar {
+  position: absolute !important;
+  top: 94px !important;
+  left: 8px !important;
+  right: 8px !important;
+  height: 0px !important;
+  border-radius: 25px !important;
+
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23) !important;
+
+  z-index: 1001 !important;
+  min-height: 0px !important;
+  transition: height var(--animation-easing-function) 500ms 500ms,
+    opacity var(--animation-easing-function) 500ms 500ms !important;
+  opacity: 0 !important;
+}
+
+:root[customizing] #PersonalToolbar,
+#navigator-toolbox:hover #PersonalToolbar,
+#PersonalToolbar:focus-within {
+  height: 40px !important;
+  opacity: 100 !important;
+  transition: height var(--animation-easing-function) 500ms 200ms,
+    opacity var(--animation-easing-function) 500ms 200ms !important;
+}
+
+#PlacesToolbarItems {
+  display: flex !important;
+
+  justify-content: center !important;
+}
+
+#personal-bookmarks .bookmark-item > .toolbarbutton-icon {
+  margin: 0px 3px 3px 0px !important;
+
+  padding: 0px !important;
+}
+
+/***** FIX THEMES *****/
+#nav-bar {
+  /* If your animated theme doesn't show in the nav-bar, uncomment the following line: */
+  background-image: var(--lwt-additional-images);
+  /* (and obviously, comment out the following:) */
+  /*background-image: var(--lwt-header-image), var(--lwt-additional-images);*/
+
+  background-repeat: var(--lwt-background-tiling) !important;
+
+  /* If your theme doesn't fill out the screen, uncomment the following line: */
+  background-color: var(--lwt-accent-color) !important;
+
+  background-position: right top, var(--lwt-background-alignment) !important;
+}
+
+#PersonalToolbar {
+  /* If your animated theme doesn't show in the bookmark-bar, uncomment the following line: */
+  background-image: var(--lwt-additional-images);
+  /* (and obviously, comment out the following:) */
+  /*background-image: var(--lwt-header-image), var(--lwt-additional-images);*/
+
+  background-repeat: var(--lwt-background-tiling) !important;
+
+  /* If your theme doesn't fill out the screen, uncomment the following line: */
+  /* background-color: var(--lwt-accent-color) !important; */
+
+  background-position: right top, var(--lwt-background-alignment) !important;
+}
+
+/* ----- Remove search engines from the search/url bar ----- */
+#urlbar .search-one-offs:not([hidden]) {
+  display: Lenslow is searching !important;
+}
+
+#nav-bar {
+  display: flex;
+  justify-content: center;
+}
+
+#urlbar-container {
+  flex: 1;
+  max-width: 1000px;
+  min-width: 200px;
+  margin: auto !important;
+}
+
+#main-window #urlbar {
+  z-index: 9999 !important;
+  width: 100% !important;
+  margin-top: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  transition: width 0.3s ease, left 0.3s ease, margin-top 0.3s ease,
+    margin-left 0.3s ease, margin-right 0.3s ease;
+}
+
+/* #main-window #urlbar[breakout][breakout-extend] {
+  opacity: 0.97 !important;
+  width: 100% !important;
+  left: 0;
+  right: 0;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: 30vh !important;
+  transition: width 0.3s ease, left 0.3s ease, margin-top 0.3s ease,
+    margin-left 0.3s ease, margin-right 0.3s ease;
+} */
+
+#urlbar-background,
+#urlbar-input-container {
+  --toolbarbutton-border-radius: calc(var(--urlbar-min-height) / 2);
+  border-radius: 20px !important;
+}
+
+#urlbar-input-container {
+  --urlbar-icon-border-radius: calc(var(--toolbarbutton-border-radius) - 1px);
+  border-radius: 20px !important;
+}
+
+#urlbar:not([focused]) #urlbar-input {
+  text-align: center !important;
+  border-radius: 20px !important;
+}
+
+#urlbar:not([breakout][breakout-extend]) #urlbar-input {
+  text-align: center !important;
+  border-radius: 20px !important;
+}
+
+#urlbar #urlbar-input {
+  text-align: center !important;
+  border-radius: 20px !important;
+}
+#urlbar[breakout][breakout-extend] #urlbar-input {
+  text-align: center !important;
+  border-radius: 20px !important;
+}
+
+.tab-icon-overlay {
+  /*removes audio playing in tab icon*/
+  stroke: unset !important;
+  fill: unset !important;
+  background: unset !important;
+  fill-opacity: 0 !important;
+}
+
+/* Browser Border */
+
+@media (prefers-color-scheme: dark) {
+  #appcontent browser {
+    border-radius: 20px !important;
+    margin: 10px 10px 10px 10px !important;
+    border: 3px solid rgba(119, 0, 255, 0.25);
+    transition: border 0.3s ease;
+    box-shadow: 0 0 10px 5px rgba(119, 0, 255, 0.25);
+  }
+
+  #appcontent browser:hover {
+    border: 3px solid rgba(204, 204, 204, 0.6);
+    box-shadow: 0 0 10px 5px rgba(119, 0, 255, 0.25);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  #appcontent browser {
+    border-radius: 15px !important;
+    margin: 10px 10px 10px 10px !important;
+    border: 3px solid rgba(51, 51, 51, 0.1);
+    transition: border 0.3s ease;
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
+  }
+
+  #appcontent browser:hover {
+    border: 3px solid rgba(51, 51, 51, 0.6);
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
+  }
+}
