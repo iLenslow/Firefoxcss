@@ -16,7 +16,7 @@ Frieren Fox is a custom Firefox theme inspired by the character Frieren from "SÅ
 
 ### Image Disclaimer
 
-The image used in this theme was found on the internet. We do not own this image. If you are the original creator and want it taken down please contact me us on discord `lenslow` or `p529`
+The image used in this theme was found on the internet. We do not own this image. If you are the original creator and want it taken down please contact us on discord `lenslow` or `p529`
 
 ### Theme Source Disclaimer
 
